@@ -2,11 +2,17 @@
   sample-demo works!
 </p>
 <hr>
-<ul *ngFor="let name of names">
-  <li>
-    Name is {{name}}
-  </li>
-</ul>
+  <div *ngFor="let name of names" class="card" style="width:100px">
+    <img class="card-img-top" width="40px" [src]="imsSource" alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title">{{name}}</h4>
+      <p class="card-text">Some example text.</p>
+      <a class="btn btn-primary">See Profile</a>
+    </div>
+    <hr>
+  </div>
+<hr>
+<input type="button" value="Add Card" (click)="AdCard()">
 
 
 
