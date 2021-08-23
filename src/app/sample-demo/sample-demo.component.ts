@@ -14,8 +14,9 @@ export class SampleDemoComponent implements OnInit {
   ngOnInit() {
   }
 
-  AdCard()
+  AdCard(unm : any)
   {
+    console.log(unm.value);
     this.names.push('avika');
   }
 
