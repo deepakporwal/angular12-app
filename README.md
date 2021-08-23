@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Commands to add NgXs store and its dependencies
+
+1.npm install @ngxs/store --save
+2.npm install @ngxs/store@dev --save
+3.npm install @ngxs/logger-plugin@dev --save
+4.install redux dev tools in the chrome
+
+Changes in App.module.ts
+
+    NgxsModule.forRoot([]),
+    NgxsLoggerPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot()
