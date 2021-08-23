@@ -4,6 +4,11 @@ export class GetUsers {
     static readonly type = '[Users] GetUsers';
 }
 
+export class SetSelectedUser {
+    static readonly type = '[Users] Set';
+    constructor(public id : number) {}
+}
+
 export class AddUsers
 {
     static readonly type = '[Users] AddUser';

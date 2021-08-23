@@ -1,0 +1,32 @@
+import { Component, OnInit } from '@angular/core';
+import { Select,  Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { UsersModel } from '../model/users.model';
+import { SetSelectedUser } from '../store/actions/users.action';
+import { UsersState } from '../store/state/user.state';
+
+@Component({
+  selector: 'app-single-user',
+  templateUrl: './single-user.component.html',
+  styleUrls: ['./single-user.component.css']
+})
+export class SingleUserComponent implements OnInit {
+
+  userid : number;
+  usrjsondata : string;
+
+  @Select(UsersState.singleUser) selectedUser$ : Observable<UsersModel>;
+
+  constructor(private store : Store) { }
+
+  ngOnInit() {
+  }
+
+  dispatchAction(id)
+  {
+    this.store.dispatch(new SetSelectedUser(id));
+    this.selectedUser$.subscribe(res=>{
+      console.log(res);
+    })
+  }
+}

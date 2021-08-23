@@ -13,20 +13,24 @@ import { LoginComponent } from './login/login.component';
 
 import { UsersComponent } from './users/users.component';
 import { UsersState } from './store/state/user.state';
+import { SingleUserComponent } from './single-user/single-user.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
       HeaderComponent,
       SampleDemoComponent,
       LoginComponent,
-      UsersComponent
+      UsersComponent,
+      SingleUserComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     NgxsModule.forRoot([UsersState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
