@@ -12,6 +12,7 @@ import { SampleDemoComponent } from './sample-demo/sample-demo.component';
 import { LoginComponent } from './login/login.component';
 
 import { UsersComponent } from './users/users.component';
+import { UsersState } from './store/state/user.state';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { UsersComponent } from './users/users.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxsModule.forRoot([]),
+    NgxsModule.forRoot([UsersState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
