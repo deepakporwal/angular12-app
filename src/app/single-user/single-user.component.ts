@@ -27,6 +27,7 @@ export class SingleUserComponent implements OnInit {
     this.store.dispatch(new SetSelectedUser(id));
     this.selectedUser$.subscribe(res=>{
       console.log(res);
+      this.usrjsondata = JSON.stringify(res);
     })
   }
 }

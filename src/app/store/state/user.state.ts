@@ -71,9 +71,22 @@ export class UsersState {
        const state = getState();
        const userList = state.users;
        const index = userList.findIndex(usr=> usr.id == id);
-       setState({
-        ...state,singleuser : userList[index],
-       })
+       if(userList.length>0) // if no data present in store
+       {
+        return setState({
+            ...state,singleuser : userList[index],
+           })
+       }
+       else
+       {
+           return this.objServive.getPostById(id).pipe(tap((res: UsersModel)=>{
+            const state = getState();
+            const userList = [res];
+            setState({
+                ...state,singleuser : userList[0],
+               })
+           }));
+       }
        //console.log('userslist : ' ,userList[index]);
     }
 }
