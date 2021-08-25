@@ -15,6 +15,7 @@ import { UsersComponent } from './users/users.component';
 import { UsersState } from './store/state/user.state';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { FormsModule } from '@angular/forms';
+import { HtmlBasicsComponent } from './html-basics/html-basics.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
       SampleDemoComponent,
       LoginComponent,
       UsersComponent,
-      SingleUserComponent
+      SingleUserComponent,
+      HtmlBasicsComponent
    ],
   imports: [
     BrowserModule,

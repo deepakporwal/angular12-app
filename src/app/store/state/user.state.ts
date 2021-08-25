@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { UsersModel } from "src/app/model/users.model";
 import { UsersService } from "src/app/services/users.service";
-import { GetUsers, SetSelectedUser } from "../actions/users.action";
+import { AddUsers, GetUsers, SetSelectedUser } from "../actions/users.action";
 import { tap } from 'rxjs/operators';
 
 
@@ -88,5 +88,11 @@ export class UsersState {
            }));
        }
        //console.log('userslist : ' ,userList[index]);
+    }
+
+    @Action(AddUsers)
+    addUsersToStore({getState, patchState} : StateContext<UsersStateModel>,{payload} : AddUsers)
+    {
+
     }
 }
