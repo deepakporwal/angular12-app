@@ -2,22 +2,24 @@ import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { UsersModel } from "src/app/model/users.model";
 import { UsersService } from "src/app/services/users.service";
-import { GetUsers } from "../actions/users.action";
+import { AddUsers, DeleteUser, GetUsers, SetSelectedUser } from "../actions/users.action";
 import { tap } from 'rxjs/operators';
 
 
 //State Model
 export class UsersStateModel
 {
-    users!: UsersModel[];
-    usersLoaded! : boolean
+    users : UsersModel[];
+    usersLoaded : boolean;
+    singleuser: UsersModel;
 }
 
 @State<UsersStateModel>({
     name : 'userslist',
     defaults : {
         users : [],
-        usersLoaded: false
+        usersLoaded: false,
+        singleuser : null
     }
 })
 
@@ -40,6 +42,13 @@ export class UsersState {
         return state.usersLoaded;
     }
 
+    // get selected user from the state
+    @Selector()
+    static singleUser(state : UsersStateModel)
+    {
+        return state.singleuser;
+    }
+
     @Action(GetUsers)
     getUsers({getState,setState} : StateContext<UsersStateModel>)
     {
@@ -55,4 +64,57 @@ export class UsersState {
             //console.log(state);
         }))
     }
+
+    @Action(SetSelectedUser)
+    setSelectedUser({getState,setState} : StateContext<UsersStateModel>,{id}: SetSelectedUser)
+    {
+       const state = getState();
+       const userList = state.users;
+       const index = userList.findIndex(usr=> usr.id == id);
+       if(userList.length>0) // if no data present in store
+       {
+        return setState({
+            ...state,singleuser : userList[index],
+           })
+       }
+       else
+       {
+           return this.objServive.getPostById(id).pipe(tap((res: UsersModel)=>{
+            const state = getState();
+            const userList = [res];
+            setState({
+                ...state,singleuser : userList[0],
+               })
+           }));
+       }
+       //console.log('userslist : ' ,userList[index]);
+    }
+
+    @Action(AddUsers)
+    addUsersToStore({getState, patchState} : StateContext<UsersStateModel>,{payload} : AddUsers)
+    {
+        console.log(payload);
+        const state = getState();
+        // add data to state
+        patchState({
+            users : [...state.users,payload]
+        });
+    }
+
+    @Action(DeleteUser)
+    deleteUserFromStore({getState,setState}: StateContext<UsersStateModel>,{id}: DeleteUser)
+    {
+        console.log('id is ',id);
+        const state = getState();
+        console.log(state);
+        const filterUser = state.users.filter(user=>{
+           return user.id!==id
+        });
+        console.log(filterUser);
+        // setState({
+        //     users : filterUser;
+        // })
+
+    }
+    
 }

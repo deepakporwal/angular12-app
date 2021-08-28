@@ -38,3 +38,9 @@ Changes in App.module.ts
     NgxsModule.forRoot([]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
+
+
+Basic funda for creating store
+1) First step is to create an Action (any of the crud operation) static readonly type = Action name
+2) Second if want to return the data from store then create selector decorator for that Action @Select
+3) Third create an Action method in state class using @Action decorator

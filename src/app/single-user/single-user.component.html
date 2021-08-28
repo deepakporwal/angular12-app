@@ -1,0 +1,12 @@
+<p>
+  single-user works!
+</p>
+<label>User id</label>
+<input type="text" [(ngModel)]="userid" >
+<input type="button" value="Get User" (click)="dispatchAction(userid)">
+<hr>
+<label>{{usrjsondata}}</label>
+<br>
+<input type="button" value="Add user to store" (click)="addusertoStore()">
+<hr>
+<input type="button" value="delete user from store" (click)="deleteuserfromStore(1001)">
