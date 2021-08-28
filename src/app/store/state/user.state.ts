@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { UsersModel } from "src/app/model/users.model";
 import { UsersService } from "src/app/services/users.service";
-import { AddUsers, GetUsers, SetSelectedUser } from "../actions/users.action";
+import { AddUsers, DeleteUser, GetUsers, SetSelectedUser } from "../actions/users.action";
 import { tap } from 'rxjs/operators';
 
 
@@ -100,4 +100,21 @@ export class UsersState {
             users : [...state.users,payload]
         });
     }
+
+    @Action(DeleteUser)
+    deleteUserFromStore({getState,setState}: StateContext<UsersStateModel>,{id}: DeleteUser)
+    {
+        console.log('id is ',id);
+        const state = getState();
+        console.log(state);
+        const filterUser = state.users.filter(user=>{
+           return user.id!==id
+        });
+        console.log(filterUser);
+        // setState({
+        //     users : filterUser;
+        // })
+
+    }
+    
 }

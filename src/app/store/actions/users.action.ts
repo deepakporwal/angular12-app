@@ -19,6 +19,16 @@ export class AddUsers
     
 }
 
+export class DeleteUser
+{
+    static readonly type ='[Users] DeleteUser';
+    constructor(public id : number)
+    {
+        
+    }
+
+}
+
 export class AddAnimal {
     static readonly type = '[Zoo] Add Animal';
     constructor(public name: string) {}

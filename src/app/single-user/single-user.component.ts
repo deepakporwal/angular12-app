@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Select,  Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { UsersModel } from '../model/users.model';
-import { AddUsers, SetSelectedUser } from '../store/actions/users.action';
+import { AddUsers, DeleteUser, SetSelectedUser } from '../store/actions/users.action';
 import { UsersState } from '../store/state/user.state';
 
 @Component({
@@ -40,5 +40,10 @@ export class SingleUserComponent implements OnInit {
       body : "this is a test record added to store."};
     
     this.store.dispatch(new AddUsers(this.objUser))
+  }
+
+  deleteuserfromStore(id : number)
+  {
+    this.store.dispatch(new DeleteUser(id));
   }
 }
