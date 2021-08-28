@@ -93,6 +93,11 @@ export class UsersState {
     @Action(AddUsers)
     addUsersToStore({getState, patchState} : StateContext<UsersStateModel>,{payload} : AddUsers)
     {
-
+        console.log(payload);
+        const state = getState();
+        // add data to state
+        patchState({
+            users : [...state.users,payload]
+        });
     }
 }

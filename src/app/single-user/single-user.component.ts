@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Select,  Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { UsersModel } from '../model/users.model';
-import { SetSelectedUser } from '../store/actions/users.action';
+import { AddUsers, SetSelectedUser } from '../store/actions/users.action';
 import { UsersState } from '../store/state/user.state';
 
 @Component({
@@ -14,6 +14,7 @@ export class SingleUserComponent implements OnInit {
 
   userid : number;
   usrjsondata : string;
+  objUser : UsersModel;
 
   @Select(UsersState.singleUser) selectedUser$ : Observable<UsersModel>;
 
@@ -29,5 +30,15 @@ export class SingleUserComponent implements OnInit {
       console.log(res);
       this.usrjsondata = JSON.stringify(res);
     })
+  }
+
+  addusertoStore()
+  {
+      this.objUser = {id :1001,
+      userId : 101,
+      title:"test user",
+      body : "this is a test record added to store."};
+    
+    this.store.dispatch(new AddUsers(this.objUser))
   }
 }
