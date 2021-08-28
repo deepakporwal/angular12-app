@@ -1,3 +1,4 @@
+import { MatModule } from './mat/mat.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
@@ -16,6 +17,11 @@ import { UsersState } from './store/state/user.state';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { FormsModule } from '@angular/forms';
 import { HtmlBasicsComponent } from './html-basics/html-basics.component';
+import { MaterialExamplesComponent } from './material-examples/material-examples.component';
+import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 @NgModule({
@@ -26,17 +32,24 @@ import { HtmlBasicsComponent } from './html-basics/html-basics.component';
       LoginComponent,
       UsersComponent,
       SingleUserComponent,
-      HtmlBasicsComponent
+      HtmlBasicsComponent,
+      MaterialExamplesComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    SharedModule,
     NgxsModule.forRoot([UsersState]),
     NgxsLoggerPluginModule.forRoot(),
-    NgxsReduxDevtoolsPluginModule.forRoot()
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    BrowserAnimationsModule,
+    MatModule
+
+  
   ],
+  exports: [SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })
