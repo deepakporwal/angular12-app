@@ -1,3 +1,4 @@
+import { SampleReactFormComponent } from './sample-react-form/sample-react-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HtmlBasicsComponent } from './html-basics/html-basics.component';
@@ -16,7 +17,10 @@ const routes: Routes = [
   { path : 'users' ,component : UsersComponent},
   { path : 'users-det',component : SingleUserComponent },
   { path : 'html-basics',component : HtmlBasicsComponent },
-  { path : 'material-basics',component : MaterialExamplesComponent }
+  { path : 'material-basics',component : MaterialExamplesComponent },
+  {
+    path : 'sample-reactive-form',component : SampleReactFormComponent
+  }
 
 
 ];

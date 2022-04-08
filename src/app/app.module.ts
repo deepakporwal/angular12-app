@@ -15,11 +15,12 @@ import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { UsersState } from './store/state/user.state';
 import { SingleUserComponent } from './single-user/single-user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HtmlBasicsComponent } from './html-basics/html-basics.component';
 import { MaterialExamplesComponent } from './material-examples/material-examples.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SampleReactFormComponent } from './sample-react-form/sample-react-form.component';
 
 
 
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       UsersComponent,
       SingleUserComponent,
       HtmlBasicsComponent,
-      MaterialExamplesComponent
+      MaterialExamplesComponent,
+      SampleReactFormComponent
    ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     BrowserAnimationsModule,
-    MatModule
+    MatModule,
+    ReactiveFormsModule
 
   
   ],
