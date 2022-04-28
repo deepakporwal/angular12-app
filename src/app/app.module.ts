@@ -21,6 +21,7 @@ import { MaterialExamplesComponent } from './material-examples/material-examples
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SampleReactFormComponent } from './sample-react-form/sample-react-form.component';
+import { BlankComponent } from './blank/blank.component';
 
 
 
@@ -35,7 +36,8 @@ import { SampleReactFormComponent } from './sample-react-form/sample-react-form.
       SingleUserComponent,
       HtmlBasicsComponent,
       MaterialExamplesComponent,
-      SampleReactFormComponent
+      SampleReactFormComponent,
+      BlankComponent
    ],
   imports: [
     BrowserModule,
