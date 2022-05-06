@@ -22,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SampleReactFormComponent } from './sample-react-form/sample-react-form.component';
 import { BlankComponent } from './blank/blank.component';
+import { SampleRxjsComponent } from './sample-rxjs/sample-rxjs.component';
 
 
 
@@ -37,7 +38,8 @@ import { BlankComponent } from './blank/blank.component';
       HtmlBasicsComponent,
       MaterialExamplesComponent,
       SampleReactFormComponent,
-      BlankComponent
+      BlankComponent,
+      SampleRxjsComponent
    ],
   imports: [
     BrowserModule,

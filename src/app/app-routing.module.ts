@@ -1,5 +1,6 @@
+import { SampleRxjsComponent } from './sample-rxjs/sample-rxjs.component';
 import { SampleReactFormComponent } from './sample-react-form/sample-react-form.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HtmlBasicsComponent } from './html-basics/html-basics.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +21,9 @@ const routes: Routes = [
   { path : 'material-basics',component : MaterialExamplesComponent },
   {
     path : 'sample-reactive-form',component : SampleReactFormComponent
+  },
+  {
+    path : 'sample-rxjs',component : SampleRxjsComponent
   }
 
 
