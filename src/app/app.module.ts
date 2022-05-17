@@ -1,7 +1,7 @@
 import { MatModule } from './mat/mat.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { HttpClientModule,HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
@@ -24,6 +24,7 @@ import { SampleReactFormComponent } from './sample-react-form/sample-react-form.
 import { BlankComponent } from './blank/blank.component';
 import { SampleRxjsComponent } from './sample-rxjs/sample-rxjs.component';
 import { DemoserviceComponent } from './demoservice/demoservice.component';
+import { InterceptorService } from './interceptor.service';
 
 
 
@@ -59,7 +60,13 @@ import { DemoserviceComponent } from './demoservice/demoservice.component';
   
   ],
   exports: [SharedModule],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : InterceptorService,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
