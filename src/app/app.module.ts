@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SampleReactFormComponent } from './sample-react-form/sample-react-form.component';
 import { BlankComponent } from './blank/blank.component';
 import { SampleRxjsComponent } from './sample-rxjs/sample-rxjs.component';
+import { DemoserviceComponent } from './demoservice/demoservice.component';
 
 
 
@@ -39,7 +40,8 @@ import { SampleRxjsComponent } from './sample-rxjs/sample-rxjs.component';
       MaterialExamplesComponent,
       SampleReactFormComponent,
       BlankComponent,
-      SampleRxjsComponent
+      SampleRxjsComponent,
+      DemoserviceComponent
    ],
   imports: [
     BrowserModule,
