@@ -1,0 +1,32 @@
+[
+    {
+      "date": "2022-05-18T11:55:20.5072233+05:30",
+      "temperatureC": 47,
+      "temperatureF": 116,
+      "summary": "Sweltering"
+    },
+    {
+      "date": "2022-05-19T11:55:20.5083247+05:30",
+      "temperatureC": 0,
+      "temperatureF": 32,
+      "summary": "Mild"
+    },
+    {
+      "date": "2022-05-20T11:55:20.5083311+05:30",
+      "temperatureC": 3,
+      "temperatureF": 37,
+      "summary": "Cool"
+    },
+    {
+      "date": "2022-05-21T11:55:20.5083315+05:30",
+      "temperatureC": -9,
+      "temperatureF": 16,
+      "summary": "Chilly"
+    },
+    {
+      "date": "2022-05-22T11:55:20.5083317+05:30",
+      "temperatureC": 3,
+      "temperatureF": 37,
+      "summary": "Scorching"
+    }
+  ]
