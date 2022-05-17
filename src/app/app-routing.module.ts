@@ -1,8 +1,9 @@
+import { AuthGuard } from './services/auth.guard';
 import { DemoserviceComponent } from './demoservice/demoservice.component';
 import { SampleRxjsComponent } from './sample-rxjs/sample-rxjs.component';
 import { SampleReactFormComponent } from './sample-react-form/sample-react-form.component';
 import { NgModule, Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { HtmlBasicsComponent } from './html-basics/html-basics.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialExamplesComponent } from './material-examples/material-examples.component';
@@ -27,7 +28,7 @@ const routes: Routes = [
     path : 'sample-rxjs',component : SampleRxjsComponent
   },
   {
-    path : 'service-demo',component : DemoserviceComponent
+    path : 'service-demo',component : DemoserviceComponent , canActivate : [AuthGuard]
   }
 
 
